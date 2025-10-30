@@ -107,27 +107,123 @@ img {
 .footer {
   background-color: $BASIC_GREY;
   color: $BLACK;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 24px 16px;
-  text-align: center;
+  min-height: 149px;
 
-  &__logo {
-    margin-bottom: 16px;
-    width: 100px;
+  &__container {
+    width: 100%;
+    max-width: 1240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
   }
 
+  // ----- ЛОГОТИП -----
+  &__logo img {
+    display: block;
+    width: 128px;
+    height: auto;
+  }
+
+  // ----- СОЦСЕТИ -----
   &__social {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 16px;
-    margin-bottom: 12px;
+    gap: 24px;
+
+    &-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover img {
+        opacity: 0.7;
+      }
+    }
   }
 
-  &__social-link img {
-    width: 24px;
-  }
-
-  &__credits {
+  // ----- HTML ACADEMY -----
+  &__html {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-family: 'Arial', sans-serif;
     font-size: 14px;
-    color: $BLACK;
+    color: $DARK_GREY;
+
+    img {
+      width: 28px;
+      height: 28px;
+      display: block;
+      object-fit: contain;
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover img {
+      opacity: 0.7;
+    }
+  }
+}
+
+// ---------- АДАПТИВ ----------
+@media (max-width: 767.98px) {
+  .footer {
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer {
+    flex-direction: column;
+    min-height: 236px;
+    padding: 0;
+
+    &__container {
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+    }
+
+    &__logo {
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid #d9d9d9;
+      padding: 32px 0;
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    &__social {
+      width: 100%;
+      justify-content: center;
+      border-bottom: 1px solid #d9d9d9;
+      padding: 20px 0;
+      gap: 36px;
+    }
+
+    &__html {
+      justify-content: space-between;
+      width: 100%;
+      padding: 22px 16px;
+      font-size: 14px;
+    }
   }
 }
