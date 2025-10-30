@@ -1,4 +1,5 @@
-@import './fonts';
+@import 'variables';
+@import 'fonts';
 
 *,
 *::before,
@@ -55,7 +56,7 @@ img {
   &__burger-line {
     width: 25px;
     height: 3px;
-    background-color: #000;
+    background-color: $BLACK;
   }
 
   &__list {
@@ -73,12 +74,13 @@ img {
     font-size: 28px;
     font-weight: 500;
     margin-bottom: 12px;
+    color: $BLACK;
   }
 
   &__subtitle {
     font-size: 16px;
     margin-bottom: 24px;
-    color: #555;
+    color: $DARK_GREY;
   }
 
   &__image {
@@ -90,20 +92,21 @@ img {
   &__button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #68B738;
-    color: #fff;
+    background-color: $BASIC_GREEN;
+    color: $WHITE;
     font-size: 16px;
     border-radius: 4px;
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: darken(#68B738, 10%);
+      background-color: darken($BASIC_GREEN, 10%);
     }
   }
 }
 
 .footer {
-  background-color: #f5f5f5;
+  background-color: $BASIC_GREY;
+  color: $BLACK;
   padding: 24px 16px;
   text-align: center;
 
@@ -125,6 +128,6 @@ img {
 
   &__credits {
     font-size: 14px;
-    color: #333;
+    color: $BLACK;
   }
 }
