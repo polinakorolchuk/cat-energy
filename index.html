@@ -10,42 +10,31 @@
 </head>
 <body>
 
-  <!-- ======= HEADER ======= -->
-  <header class="header">
-    <div class="header__container">
-      <!-- ЛОГОТИП -->
-      <div class="header__logo logo">
-        <!-- Мобильная версия -->
-        <div class="logo__mobile">
-          <img src="./assets/logo/logo-mobile.svg" alt="Cat Energy mobile logo" loading="lazy">
-          <img src="./assets/logo/logo 2.svg" alt="Cat Energy text logo" loading="lazy">
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo logo">
+                <div class="logo-mobile">
+                    <img src="./assets/images/logo/logo-mobile.svg" alt="logo for mobile" loading="lazy">
+                    <img src="./assets/images/logo/mainlogo.svg" alt="Additional logo element" loading="lazy">
+                </div>
+                <img class="logo-tablet" src="./assets/images/logo/logo-tablet.svg" alt="logo-tablet" loading="lazy">
+                <img class="logo-desktop" src="./assets/images/logo/logo-desktop.svg" alt="logo-desktop">
+            </div>    
+            <input type="checkbox" id="burger-checkbox" class="burger-checkbox" aria-controls="header__nav">
+            <label for="burger-checkbox" class="burger" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav class="header__nav">
+                <ul class="header__menu-list">
+                    <li><a href="#" class="header__link">главная</a></li>
+                    <li><a href="#" class="header__link">каталог продукции</a></li>
+                    <li><a href="#" class="header__link">подбор программы</a></li>
+                </ul>
+            </nav>
         </div>
-
-        <!-- Планшетная версия -->
-        <img class="logo__tablet" src="./assets/logo/logo-tablet.svg" alt="Cat Energy tablet logo" loading="lazy">
-
-        <!-- Десктопная версия -->
-        <img class="logo__desktop" src="./assets/logo/logo-desktop.svg" alt="Cat Energy desktop logo" loading="lazy">
-      </div>
-
-      <!-- БУРГЕР -->
-      <input type="checkbox" id="burger-checkbox" class="burger-checkbox" aria-controls="header__menu">
-      <label for="burger-checkbox" class="burger" aria-label="Меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <!-- МЕНЮ -->
-      <nav class="header__menu" id="header__menu">
-        <ul class="header__list">
-          <li><a href="#" class="header__link">главная</a></li>
-          <li><a href="#catalog" class="header__link">каталог продукции</a></li>
-          <li><a href="#form" class="header__link">подбор программы</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    </header>
 
   <!-- ======= MAIN ======= -->
   <main class="page">
