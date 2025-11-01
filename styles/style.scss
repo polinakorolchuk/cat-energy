@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'fonts';
 
+/* ---------- RESET ---------- */
 *,
 *::before,
 *::after {
@@ -9,19 +10,49 @@
   padding: 0;
 }
 
-body, h1, p, ul, li, a {
-  margin: 0;
-  padding: 0;
-  font-family: 'Oswald', Arial, sans-serif;
+html,
+body {
+  overflow-x: hidden;
 }
 
-ul {
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
   list-style: none;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
 img {
@@ -30,42 +61,160 @@ img {
 }
 
 [class$="__container"] {
-  width: 100%;
-  padding: 0 16px;
+  max-width: 1240px;
   margin: 0 auto;
+  padding: 0 10px;
+
+  @media (max-width: 767.98px) {
+    max-width: 729px;
+  }
+
+  @media (max-width: 319.98px) {
+    max-width: 300px;
+  }
 }
 
+/* ---------- BASE TYPOGRAPHY ---------- */
+body {
+  font-family: 'Oswald', Arial, sans-serif;
+}
+
+.hdr {
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.text {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #444444;
+  line-height: 150%;
+}
+
+/* ---------- HEADER ---------- */
 .header {
-  width: 100%;
-  padding: 16px 0;
+  min-height: 165px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    padding-right: 10px;
+  }
+
   &__logo-image {
-    width: 120px;
+    display: block;
   }
 
   &__burger {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
-  }
 
-  &__burger-line {
-    width: 25px;
-    height: 3px;
-    background-color: $BLACK;
+    &-line {
+      width: 25px;
+      height: 3px;
+      background-color: $BLACK;
+    }
   }
 
   &__list {
-    display: none;
-    flex-direction: column;
-    gap: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    column-gap: 37px;
+    color: white;
+
+    li {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: white;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- TABLET ---------- */
+  @media (max-width: 767.98px) {
+    min-height: 100px;
+
+    &__list {
+      color: #000;
+      column-gap: 35px;
+
+      li::after {
+        background-color: #68B738;
+      }
+    }
+
+    &__link {
+      font-size: 18px;
+    }
+
+    &__burger {
+      display: flex;
+    }
+  }
+
+  /* ---------- SMALL TABLET / LARGE MOBILE ---------- */
+  @media (max-width: 710px) {
+    &__list {
+      font-size: 16px;
+      color: #000;
+      column-gap: 15px;
+    }
+
+    &__link {
+      font-size: 18px;
+    }
+  }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 319.98px) {
+    &__logo {
+      flex: 0 1 70%;
+    }
+
+    &__burger {
+      display: flex;
+    }
+
+    &__list {
+      display: none;
+    }
   }
 }
 
+/* ---------- HERO ---------- */
 .hero {
   text-align: center;
   padding: 80px 16px 40px;
@@ -104,14 +253,14 @@ img {
   }
 }
 
+/* ---------- FOOTER ---------- */
 .footer {
   background-color: $BASIC_GREY;
-  color: $BLACK;
+  min-height: 149px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px 16px;
-  min-height: 149px;
+  padding: 24px 0;
 
   &__container {
     width: 100%;
@@ -119,29 +268,31 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
     padding: 0 10px;
   }
 
-  // ----- ЛОГОТИП -----
+  /* ----- ЛОГОТИП ----- */
   &__logo img {
     display: block;
     width: 128px;
     height: auto;
   }
 
-  // ----- СОЦСЕТИ -----
+  /* ----- СОЦСЕТИ ----- */
   &__social {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 24px;
+    justify-content: space-between;
+    width: 130px;
+    height: 22px;
 
     &-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 28px;
-      height: 28px;
+      width: 22px;
+      height: 22px;
 
       img {
         width: 100%;
@@ -157,12 +308,12 @@ img {
     }
   }
 
-  // ----- HTML ACADEMY -----
+  /* ----- HTML ACADEMY ----- */
   &__html {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 22px;
     font-family: 'Arial', sans-serif;
     font-size: 14px;
     color: $DARK_GREY;
@@ -181,7 +332,7 @@ img {
   }
 }
 
-// ---------- АДАПТИВ ----------
+/* ---------- АДАПТИВ ---------- */
 @media (max-width: 767.98px) {
   .footer {
     min-height: 150px;
@@ -204,7 +355,7 @@ img {
       width: 100%;
       text-align: center;
       border-bottom: 1px solid #d9d9d9;
-      padding: 32px 0;
+      padding: 39px;
 
       img {
         margin: 0 auto;
@@ -213,17 +364,16 @@ img {
 
     &__social {
       width: 100%;
-      justify-content: center;
+      max-width: 130px;
+      justify-content: space-between;
       border-bottom: 1px solid #d9d9d9;
-      padding: 20px 0;
-      gap: 36px;
+      padding: 21px 0;
     }
 
     &__html {
       justify-content: space-between;
       width: 100%;
-      padding: 22px 16px;
-      font-size: 14px;
+      padding: 22px;
     }
   }
 }
